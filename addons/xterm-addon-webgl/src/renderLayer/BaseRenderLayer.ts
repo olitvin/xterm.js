@@ -5,7 +5,7 @@
 
 import { IRenderLayer } from './Types';
 import { acquireCharAtlas } from '../atlas/CharAtlasCache';
-import { Terminal } from 'xterm';
+import { Terminal } from 'xterm-js';
 import { IColorSet } from 'browser/Types';
 import { IRenderDimensions } from 'browser/renderer/Types';
 import { CellData } from 'common/buffer/CellData';

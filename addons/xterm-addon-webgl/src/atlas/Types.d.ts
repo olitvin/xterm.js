@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { FontWeight } from 'xterm';
+import { FontWeight } from 'xterm-js';
 import { IColorSet } from 'browser/Types';
 
 export interface IGlyphIdentifier {

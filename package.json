@@ -1,11 +1,11 @@
 {
-  "name": "xterm",
+  "name": "xterm-js",
   "description": "Full xterm terminal, in your browser",
-  "version": "4.4.1",
+  "version": "4.4.2",
   "main": "lib/xterm.js",
   "style": "css/xterm.css",
   "types": "typings/xterm.d.ts",
-  "repository": "https://github.com/xtermjs/xterm.js",
+  "repository": "https://github.com/olitvin/xterm.js",
   "license": "MIT",
   "scripts": {
     "prepackage": "npm run build",

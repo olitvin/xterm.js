@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { Terminal, IDisposable, ITerminalAddon } from 'xterm';
+import { Terminal, IDisposable, ITerminalAddon } from 'xterm-js';
 
 declare module 'xterm-addon-webgl' {
   /**

@@ -4,7 +4,7 @@
  */
 
 import * as puppeteer from 'puppeteer';
-import { ITerminalOptions } from 'xterm';
+import { ITerminalOptions } from 'xterm-js';
 import { pollFor, writeSync } from './TestUtils';
 
 const APP = 'http://127.0.0.1:3000/test';
@@ -42,11 +42,11 @@ async function resetMouseModes(): Promise<void> {
   return await page.evaluate(`
     window.term.write('\x1b[?9l\x1b[?1000l\x1b[?1001l\x1b[?1002l\x1b[?1003l');
     window.term.write('\x1b[?1005l\x1b[?1006l\x1b[?1015l');
-  `);
+  `) as Promise<void>;
 }
 
 async function getReports(encoding: string): Promise<any[]> {
-  const reports = await page.evaluate(`window.calls`);
+  const reports = await (page.evaluate(`window.calls`) as Promise<any[]>);
   await page.evaluate(`window.calls = [];`);
   return reports.map((report: number[]) => parseReport(encoding, report));
 }
@@ -55,13 +55,13 @@ async function getReports(encoding: string): Promise<any[]> {
 // always adds +2 in each direction so we dont end up in the wrong cell
 // due to rounding issues
 async function cellPos(col: number, row: number): Promise<number[]> {
-  const coords = await page.evaluate(`
+  const coords = await (page.evaluate(`
     (function() {
       const rect = window.term.element.getBoundingClientRect();
       const dim = term._core._renderService.dimensions;
       return {left: rect.left, top: rect.top, bottom: rect.bottom, right: rect.right, width: dim.actualCellWidth, height: dim.actualCellHeight};
     })();
-  `);
+  `) as Promise<{left:number, top:number, right: number, bottom: number, width: number, height: number}>);
   return [col * coords.width + coords.left + 2, row * coords.height + coords.top + 2];
 }
 

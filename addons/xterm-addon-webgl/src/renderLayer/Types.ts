@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { IDisposable, Terminal } from 'xterm';
+import { IDisposable, Terminal } from 'xterm-js';
 import { IColorSet } from 'browser/Types';
 import { IRenderDimensions } from 'browser/renderer/Types';
 

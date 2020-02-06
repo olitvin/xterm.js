@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { Terminal, ITerminalAddon } from 'xterm';
+import { Terminal, ITerminalAddon } from 'xterm-js';
 import { WebglRenderer } from './WebglRenderer';
 import { IRenderService } from 'browser/services/Services';
 import { IColorSet } from 'browser/Types';

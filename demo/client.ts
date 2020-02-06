@@ -29,7 +29,7 @@ import { Unicode11Addon } from '../addons/xterm-addon-unicode11/out/Unicode11Add
 
 // Pulling in the module's types relies on the <reference> above, it's looks a
 // little weird here as we're importing "this" module
-import { Terminal as TerminalType, ITerminalOptions } from 'xterm';
+import { Terminal as TerminalType, ITerminalOptions } from 'xterm-js';
 
 export interface IWindowWithTerminal extends Window {
   term: TerminalType;

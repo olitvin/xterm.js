@@ -4,7 +4,7 @@
  */
 
 import * as puppeteer from 'puppeteer';
-import { ITerminalOptions } from 'xterm';
+import { ITerminalOptions } from 'xterm-js';
 import { assert } from 'chai';
 
 const APP = 'http://127.0.0.1:3000/test';

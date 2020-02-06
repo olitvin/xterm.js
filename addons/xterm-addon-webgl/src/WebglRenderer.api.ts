@@ -5,7 +5,7 @@
 
 import * as puppeteer from 'puppeteer';
 import { ITerminalOptions } from '../../../src/Types';
-import { ITheme } from 'xterm';
+import { ITheme } from 'xterm-js';
 import { assert } from 'chai';
 import deepEqual = require('deep-equal');
 
