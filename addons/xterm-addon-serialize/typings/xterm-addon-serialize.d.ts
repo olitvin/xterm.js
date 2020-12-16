@@ -4,7 +4,7 @@
  */
 
 
-import { Terminal, ITerminalAddon } from 'xterm';
+import { Terminal, ITerminalAddon } from 'xterm-js';
 
 declare module 'xterm-addon-serialize' {
   /**

@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { Terminal, ILinkMatcherOptions, IDisposable, ITerminalAddon } from 'xterm';
+import { Terminal, ILinkMatcherOptions, IDisposable, ITerminalAddon } from 'xterm-js';
 
 declare module 'xterm-addon-search' {
   /**

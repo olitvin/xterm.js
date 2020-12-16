@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { ITerminalOptions as IPublicTerminalOptions, IDisposable, IMarker, ISelectionPosition } from 'xterm';
+import { ITerminalOptions as IPublicTerminalOptions, IDisposable, IMarker, ISelectionPosition } from 'xterm-js';
 import { ICharset, IAttributeData, CharData, CoreMouseEventType } from 'common/Types';
 import { IEvent, IEventEmitter } from 'common/EventEmitter';
 import { IColorSet, ILinkifier, ILinkMatcherOptions, IViewport } from 'browser/Types';

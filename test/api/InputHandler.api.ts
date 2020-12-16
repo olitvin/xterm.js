@@ -5,7 +5,7 @@
 
 import * as puppeteer from 'puppeteer';
 import { assert } from 'chai';
-import { ITerminalOptions } from 'xterm';
+import { ITerminalOptions } from 'xterm-js';
 import { pollFor } from './TestUtils';
 
 const APP = 'http://127.0.0.1:3000/test';
@@ -261,17 +261,17 @@ describe('InputHandler Integration Tests', function(): void {
     describe('SM: Set Mode', () => {
       describe('CSI ? Pm h', () => {
         it('Pm = 1003, Set Use All Motion (any event) Mouse Tracking', async() => {
-          const coords = await page.evaluate(`
+          const coords = await (page.evaluate(`
           (function() {
             const rect = window.term.element.getBoundingClientRect();
             return {left: rect.left, top: rect.top, bottom: rect.bottom, right: rect.right};
           })();
-          `);
+          `) as Promise<any>);
           // Click and drag and ensure there is a selection
           await page.mouse.click((coords.left + coords.right) / 2, (coords.top + coords.bottom) / 2);
           await page.mouse.down();
           await page.mouse.move((coords.left + coords.right) / 2, (coords.top + coords.bottom) / 4);
-          assert.ok(await page.evaluate(`window.term.getSelection().length`) > 0, 'mouse events are off so there should be a selection');
+          assert.ok(await (page.evaluate(`window.term.getSelection().length`) as Promise<number>) > 0, 'mouse events are off so there should be a selection');
           await page.mouse.up();
           // Clear selection
           await page.mouse.click((coords.left + coords.right) / 2, (coords.top + coords.bottom) / 2);
@@ -418,7 +418,7 @@ async function getLinesAsArray(count: number, start: number = 0): Promise<string
   for (let i = start; i < start + count; i++) {
     text += `window.term.buffer.getLine(${i}).translateToString(true),`;
   }
-  return await page.evaluate(`[${text}]`);
+  return await (page.evaluate(`[${text}]`) as Promise<string[]>);
 }
 
 async function simulatePaste(text: string): Promise<string> {
@@ -431,7 +431,7 @@ async function simulatePaste(text: string): Promise<string> {
       window.term.textarea.dispatchEvent(new ClipboardEvent('paste', { clipboardData }));
     })();
   `);
-  return await page.evaluate(`window.result_${id}`);
+  return await (page.evaluate(`window.result_${id}`) as Promise<string>);
 }
 
 async function getCursor(): Promise<{col: number, row: number}> {
@@ -439,11 +439,11 @@ async function getCursor(): Promise<{col: number, row: number}> {
   (function() {
     return {col: term.buffer.cursorX, row: term.buffer.cursorY};
   })();
-  `);
+  `) as Promise<{col: number, row: number}>;
 }
 
 async function getDimensions(): Promise<any> {
-  const dim = await page.evaluate(`term._core._renderService.dimensions`);
+  const dim = await (page.evaluate(`term._core._renderService.dimensions`) as Promise<any>);
   return {
     cellWidth: dim.actualCellWidth.toFixed(0),
     cellHeight: dim.actualCellHeight.toFixed(0),

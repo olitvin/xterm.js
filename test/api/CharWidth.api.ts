@@ -4,7 +4,7 @@
  */
 
 import * as puppeteer from 'puppeteer';
-import { ITerminalOptions } from 'xterm';
+import { ITerminalOptions } from 'xterm-js';
 import { pollFor } from './TestUtils';
 
 const APP = 'http://127.0.0.1:3000/test';
@@ -106,5 +106,5 @@ async function sumWidths(start: number, end: number, sentinel: string): Promise<
       }
     })();
   `);
-  return await page.evaluate(`window.result`);
+  return await (page.evaluate(`window.result`) as  Promise<number>);
 }

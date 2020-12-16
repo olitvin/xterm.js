@@ -5,7 +5,7 @@
 
 import { ICharAtlasConfig } from './Types';
 import { Attributes } from 'common/buffer/Constants';
-import { Terminal, FontWeight } from 'xterm';
+import { Terminal, FontWeight } from 'xterm-js';
 import { IColorSet, IColor } from 'browser/Types';
 
 const NULL_COLOR: IColor = {

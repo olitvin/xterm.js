@@ -4,7 +4,7 @@
  */
 
 
-import { Terminal, ILinkMatcherOptions, ITerminalAddon } from 'xterm';
+import { Terminal, ILinkMatcherOptions, ITerminalAddon } from 'xterm-js';
 
 declare module 'xterm-addon-web-links' {
   /**

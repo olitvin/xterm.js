@@ -5,7 +5,7 @@
  * (EXPERIMENTAL) This Addon is still under development
  */
 
-import { Terminal, ITerminalAddon, IBuffer, IBufferCell } from 'xterm';
+import { Terminal, ITerminalAddon, IBuffer, IBufferCell } from 'xterm-js';
 
 function constrain(value: number, low: number, high: number): number {
   return Math.max(low, Math.min(value, high));

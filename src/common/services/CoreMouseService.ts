@@ -140,6 +140,9 @@ const DEFAULT_ENCODINGS: {[key: string]: CoreMouseEncoding} = {
    * Can report button on release and works with a well formed sequence.
    */
   SGR: (e: ICoreMouseEvent) => {
+    if (e.action === CoreMouseAction.MOVE) {
+        return ``;
+    }
     const final = (e.action === CoreMouseAction.UP && e.button !== CoreMouseButton.WHEEL) ? 'm' : 'M';
     return `\x1b[<${eventCode(e, true)};${e.col};${e.row}${final}`;
   },
@@ -163,7 +166,7 @@ const DEFAULT_ENCODINGS: {[key: string]: CoreMouseEncoding} = {
     if (e.action === CoreMouseAction.MOVE) {
         return ``;
     }
-    let ecode = eventCode(e, false);
+    const ecode = eventCode(e, false);
     if (!ecode) {
         return `\x1b[${32};${e.col};${e.row}M`;
     }
@@ -231,7 +234,7 @@ export class CoreMouseService implements ICoreMouseService {
   }
 
   public set activeEncoding(name: string) {
-    if (!this._encodings[name]) {        
+    if (!this._encodings[name]) {
       throw new Error(`unknown encoding "${name}"`);
     }
     this._activeEncoding = name;

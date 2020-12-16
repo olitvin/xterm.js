@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import { IUnicodeVersionProvider } from 'xterm';
+import { IUnicodeVersionProvider } from 'xterm-js';
 import { fill } from 'common/TypedArrayUtils';
 
 type CharWidth = 0 | 1 | 2;

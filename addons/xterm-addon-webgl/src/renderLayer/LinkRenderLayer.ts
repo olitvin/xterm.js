@@ -4,7 +4,7 @@
  */
 
 import { ILinkifierAccessor } from '../../../../src/Types';
-import { Terminal } from 'xterm';
+import { Terminal } from 'xterm-js';
 import { BaseRenderLayer } from './BaseRenderLayer';
 import { INVERTED_DEFAULT_COLOR } from 'browser/renderer/atlas/Constants';
 import { is256Color } from '../atlas/CharAtlasUtils';

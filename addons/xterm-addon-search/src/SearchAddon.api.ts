@@ -5,7 +5,7 @@
 
 import * as puppeteer from 'puppeteer';
 import { assert } from 'chai';
-import { ITerminalOptions } from 'xterm';
+import { ITerminalOptions } from 'xterm-js';
 import { readFile } from 'fs';
 import { resolve } from 'path';
 

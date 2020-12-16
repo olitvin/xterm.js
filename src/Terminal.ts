@@ -37,7 +37,7 @@ import * as Strings from 'browser/LocalizableStrings';
 import { SoundService } from 'browser/services/SoundService';
 import { MouseZoneManager } from 'browser/MouseZoneManager';
 import { AccessibilityManager } from './AccessibilityManager';
-import { ITheme, IMarker, IDisposable, ISelectionPosition } from 'xterm';
+import { ITheme, IMarker, IDisposable, ISelectionPosition } from 'xterm-js';
 import { DomRenderer } from 'browser/renderer/dom/DomRenderer';
 import { IKeyboardEvent, KeyboardResultType, IBufferLine, IAttributeData, CoreMouseEventType, CoreMouseButton, CoreMouseAction } from 'common/Types';
 import { evaluateKeyboardEvent } from 'common/input/Keyboard';

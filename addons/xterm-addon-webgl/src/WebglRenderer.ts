@@ -14,7 +14,7 @@ import { IWebGL2RenderingContext } from './Types';
 import { RenderModel, COMBINED_CHAR_BIT_MASK, RENDER_MODEL_BG_OFFSET, RENDER_MODEL_FG_OFFSET, RENDER_MODEL_INDICIES_PER_CELL } from './RenderModel';
 import { Disposable } from 'common/Lifecycle';
 import { NULL_CELL_CODE } from 'common/buffer/Constants';
-import { Terminal, IEvent } from 'xterm';
+import { Terminal, IEvent } from 'xterm-js';
 import { IRenderLayer } from './renderLayer/Types';
 import { IRenderDimensions, IRenderer, IRequestRefreshRowsEvent } from 'browser/renderer/Types';
 import { IColorSet } from 'browser/Types';
